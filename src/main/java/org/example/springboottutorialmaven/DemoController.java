@@ -6,8 +6,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DemoController {
 
+    private final CustomerRepository customerRepository;
+
     @Autowired
-    private CustomerRepository customerRepository;
+    public DemoController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @PostMapping("/add")
     public String addCustomer(@RequestParam String first, @RequestParam String last) {
