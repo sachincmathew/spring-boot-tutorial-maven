@@ -8,6 +8,7 @@ public class DemoController {
 
     @Autowired
     private CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @PostMapping("/add")
     public String addCustomer(@RequestParam String first, @RequestParam String last) {
@@ -20,7 +21,10 @@ public class DemoController {
 
     @GetMapping("/list")
     public Iterable<Customer> getCustomers() {
-        return customerRepository.findAll();
+
+        //return customerRepository.findAll();
+        return customerRepository
+
     }
 
     @GetMapping("/find/{id}")
